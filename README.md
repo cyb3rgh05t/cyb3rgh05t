@@ -1,4 +1,4 @@
-### Hi there i am cyb3rgh05t 👋
+### Hi, i am cyb3rgh05t 👋
 
 <!--
 **cyb3rgh05t/cyb3rgh05t** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -15,10 +15,11 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<summary>All GitHub Statistics 📊</summary>
-<br>
-<p>
-  <a href="https://github.com/fscorrupt" width="100%">
+<a href="https://github.com/cyb3rgh05t" width="100%">
+    <img alt="GitHub Stats" height="165px" src="https://github-readme-stats-ichbinleoon.vercel.app/api?username=cyb3rgh05t&count_private=true&show_icons=true&theme=dark&hide_border=true&hide_title=true&include_all_commits=true">
+    <img alt="Top Langs" height="165px" src="https://github-readme-stats-ichbinleoon.vercel.app/api/top-langs?username=cyb3rgh05t&langs_count=10&layout=compact&hide_border=true&theme=dark">
+</a>
+</br>
+<a href="https://github.com/cyb3rgh05t" width="100%">
     <img alt="GitHub Stats Big" src="./github-metrics.svg">
-  </a>
-</p>
+</a>
