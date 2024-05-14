@@ -1,4 +1,4 @@
-### Hi there i'm cyb3rgh05t 👋
+### Hi there i am cyb3rgh05t 👋
 
 <!--
 **cyb3rgh05t/cyb3rgh05t** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -14,3 +14,11 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+<summary>All GitHub Statistics 📊</summary>
+<br>
+<p>
+  <a href="https://github.com/fscorrupt" width="100%">
+    <img alt="GitHub Stats Big" src="./github-metrics.svg">
+  </a>
+</p>
