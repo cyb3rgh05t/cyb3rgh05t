@@ -9,13 +9,6 @@
 </a>
 </p>
 
-<p>
-  <a href="https://discordapp.com/users/408885990971670531">
-    <img align="left" alt="Discord" title="Discord" width="30px" src="assets/discord.gif">
-  </a>
-  Connect with me on - 
-</p>
-
 </br>
 <p align="center">
 <a href="https://github.com/cyb3rgh05t" width="100%">
