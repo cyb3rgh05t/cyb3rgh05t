@@ -1,6 +1,6 @@
-### Hi, i am cyb3rgh05t 👋
+## Hello there, I am Leon! <img alt="Wave" height="25px" src="assets/wave.gif">
 
----
+<img align="right" alt="cyb3rgh05t" title="<3" height="215px" src="assets/cyb3rgh05t.gif">
 
 <p align="center">
 <a href="https://github.com/cyb3rgh05t" width="100%">
