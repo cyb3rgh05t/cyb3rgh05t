@@ -10,6 +10,7 @@
 </p>
 
 <p>
+  Connect with Me on 
   <a href="https://discordapp.com/users/408885990971670531">
     <img align="left" alt="Discord" title="Discord" width="30px" src="assets/discord.gif">
   </a>
