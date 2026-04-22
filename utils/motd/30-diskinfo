@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# config
+drives="sda sdb sdc"
+max_usage=90
+bar_width=50
+target_temp=22
+# colors
+white="\e[39m"
+green="\e[1;32m"
+red="\e[1;31m"
+blue="\e[1;34m"
+dim="\e[2m"
+undim="\e[0m"
+
+# disk usage: ignore zfs, squashfs & tmpfs
+mapfile -t dfs < <(df -H -x fuse.rclone -x fuse.unionfs -x fuse.mergerfs -x overlay -x proc -x sys -x dev -x squashfs -x tmpfs -x devtmpfs --output=target,pcent,size,avail,used | tail -n+2 | sort)
+printf "\n  ${blue}Storage${undim}\n"
+
+for line in "${dfs[@]}"; do
+
+    # skip docker paths
+    if [[ $line =~ .*docker.* ]]; then
+        continue
+    fi
+
+    # get disk usage
+    usage=$(echo "$line" | awk '{print $2}' | sed 's/%//')
+    path=$(echo "$line" | awk '{print $1}' | sed 's/%//')
+    total=$(echo "$line" | awk '{print $3}' | sed 's/%//')
+    free=$(echo "$line" | awk '{print $4}' | sed 's/%//')
+    used=$(echo "$line" | awk '{print $5}' | sed 's/%//')
+    # color is green if usage < max_usage, else red
+    if [ "${usage}" -ge "${max_usage}" ]; then
+        color=$red
+    else
+        color=$green
+    fi
+
+    output+=$(echo " ${path} ${color}${used}${undim} used, ${color}${free}${undim} free, ${color}${total}${undim} total\n")
+
+
+done
+printf "${output}" |
+    awk '{printf "  %.15s %s\n", $1 "..............  ", $2 " " $3 " " $4 " " $5 " " $6 " " $7}'
+
+# Calculate unionfs from underlying mounts (storage + storage2)
+if mountpoint -q /mnt/unionfs 2>/dev/null; then
+    # Get values in bytes, then convert
+    storage1=$(df -B1 /mnt/storage 2>/dev/null | tail -1)
+    storage2=$(df -B1 /mnt/storage2 2>/dev/null | tail -1)
+    
+    if [[ -n "$storage1" && -n "$storage2" ]]; then
+        s1_total=$(echo "$storage1" | awk '{print $2}')
+        s1_used=$(echo "$storage1" | awk '{print $3}')
+        s1_free=$(echo "$storage1" | awk '{print $4}')
+        
+        s2_total=$(echo "$storage2" | awk '{print $2}')
+        s2_used=$(echo "$storage2" | awk '{print $3}')
+        s2_free=$(echo "$storage2" | awk '{print $4}')
+        
+        # Sum up
+        union_total=$((s1_total + s2_total))
+        union_used=$((s1_used + s2_used))
+        union_free=$((s1_free + s2_free))
+        union_pct=$((union_used * 100 / union_total))
+        
+        # Convert to human readable (T, G, M)
+        human_readable() {
+            local bytes=$1
+            if (( bytes >= 1099511627776 )); then
+                echo "$(echo "scale=0; $bytes / 1099511627776" | bc)T"
+            elif (( bytes >= 1073741824 )); then
+                echo "$(echo "scale=0; $bytes / 1073741824" | bc)G"
+            else
+                echo "$(echo "scale=0; $bytes / 1048576" | bc)M"
+            fi
+        }
+        
+        union_total_h=$(human_readable $union_total)
+        union_used_h=$(human_readable $union_used)
+        union_free_h=$(human_readable $union_free)
+        
+        if [ "${union_pct}" -ge "${max_usage}" ]; then
+            color=$red
+        else
+            color=$green
+        fi
+        
+        echo -e "  /mnt/unionfs... ${color}${union_used_h}${undim} used, ${color}${union_free_h}${undim} free, ${color}${union_total_h}${undim} total"
+    fi
+fi
+
+echo ""

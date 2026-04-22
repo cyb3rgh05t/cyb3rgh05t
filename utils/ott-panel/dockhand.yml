@@ -1,0 +1,22 @@
+services:
+  dockhand:
+    hostname: "dockhand"
+    image: "fnsys/dockhand:latest"
+    container_name: "dockhand"
+    restart: "unless-stopped"
+    networks:
+      - proxy
+    environment:
+      - "PGID=1000"
+      - "PUID=1000"
+      - "TZ=Europe/Berlin"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/opt/appdata/dockhand:/app/data"
+  
+networks:
+  proxy:
+    driver: bridge
+    external: true

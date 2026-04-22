@@ -1,0 +1,26 @@
+services:
+  vpn-proxy:
+    hostname: "vpn-proxy"
+    container_name: "vpn-proxy"
+    image: "ghcr.io/cyb3rgh05t/vpn-proxy:nightly"
+    environment:
+      - "PGID=1000"
+      - "PUID=1000"
+      - "TZ=Europe/Berlin"
+      - "SECRET_KEY=cvbreliqgnvlbvwgbbJBGVgwer34t534FMADFB"
+      - "DATABASE_URL=sqlite:///./data/vpnproxy.db"
+      - "GLUETUN_IMAGE=qmcgaw/gluetun:latest"
+    restart: "unless-stopped"
+    networks:
+      - proxy
+    ports:
+      - "5000:5000"
+    security_opt:
+      - "no-new-privileges:true"
+    volumes:
+      - "/opt/appdata/vpn-proxy/data:/app/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+networks:
+  proxy:
+    driver: bridge
+    external: true

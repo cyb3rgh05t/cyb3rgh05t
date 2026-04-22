@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# get load averages
+IFS=" " read LOAD1 LOAD5 LOAD15 <<<$(cat /proc/loadavg | awk '{ print $1,$2,$3 }')
+# get free memory
+IFS=" " read USED FREE TOTAL <<<$(free -htm | grep "Mem" | awk {'print $3,$6,$2'})
+# get processes
+PROCESS=$(ps -eo user= | sort | uniq -c | awk '{ print $2 " " $1 }')
+PROCESS_ALL=$(echo "$PROCESS" | awk {'print $2'} | awk '{ SUM += $1} END { print SUM }')
+PROCESS_ROOT=$(echo "$PROCESS" | grep root | awk {'print $2'})
+PROCESS_USER=$(echo "$PROCESS" | grep -v root | awk {'print $2'} | awk '{ SUM += $1} END { print SUM }')
+# get processors
+PROCESSOR_NAME=$(grep "model name" /proc/cpuinfo | cut -d ' ' -f3- | awk {'print $0'} | head -1)
+PROCESSOR_COUNT=$(grep -ioP 'processor\t:' /proc/cpuinfo | wc -l)
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+NTCARD=$(ip -o link show | awk -F': ' '{print $2}' | grep -v 'lo' | grep -v 'docker' | grep -v 'br-' | head -n 1)
+DOCKER=$(systemctl is-active docker)
+DOCKER2=$(docker --version | awk '{print $3}')
+UNIONFS=$(systemctl is-active pgunion)
+
+HSTNAME=$(cat /etc/hostname)
+
+###storage local part
+mntused=$(df -h /mnt | awk '{ a = $3 } END { print a }')
+mntavi=$(df -h /mnt | awk '{ a = $4 } END { print a }')
+mntpercent=$(df -h | awk '{if($(NF) == "/mnt") {print $(NF-1); exit;}}')
+
+baseused=$(df -h / | awk '{ a = $3 } END { print a }')
+baseavi=$(df -h / | awk '{ a = $4 } END { print a }')
+basepercent=$(df -h | awk '{if($(NF) == "/") {print $(NF-1); exit;}}')
+
+##security part
+failledssh=$(cat /var/log/auth.log | grep -i "fail" | wc -l)
+failledsshacc=$(head -n1 /var/log/auth.log | awk '{print $1, $2 ,$3 }')
+
+W="\e[0;39m"
+G="\e[1;32m"
+B="\e[1;34m"
+
+echo -e "
+$W  System information as of $(date) :
+
+$B  System
+$W  Hostname.......: $B$HSTNAME
+$W  Distro.........: $G$(lsb_release -s -d)
+$W  Kernel.........: $W$(uname -sr)
+
+$W  Uptime.........: $W$(uptime -p)
+$W  Load...........: $G$LOAD1$W (1m) , $G$LOAD5$W (5m) , $G$LOAD15$W (15m)
+$W  Processes......: $W$G$PROCESS_ROOT$W (root) , $G$PROCESS_USER$W (user) , $G$PROCESS_ALL$W (total)
+
+$W  CPU............: $W$PROCESSOR_NAME
+$W  CPU-Cores......: $G$PROCESSOR_COUNT$W vCPU
+$W  Memory.........: $G$USED$W used , $G$FREE$W free, $G$TOTAL$W total $W
+$W  Network........: $G$IP_ADDRESS$W
+$W  Network-Card...: $G$NTCARD
+
+$B  Fail2ban
+$W  SSH.fails......: $G$failledssh
+$W  SSH.fails.since: $G$failledsshacc
+
+$B  Service Status
+$W  Docker.........: $W$DOCKER , v$G$DOCKER2$W"

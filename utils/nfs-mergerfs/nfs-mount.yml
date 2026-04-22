@@ -1,0 +1,34 @@
+version: "3"
+services:
+  nfs-mount:
+    hostname: "nfs-mount"
+    container_name: "nfs-mount"
+    image: "ghcr.io/cyb3rgh05t/nfs-mount:latest"
+    environment:
+      - "PUID=1000"
+      - "PGID=1000"
+      - "TZ=Europe/Berlin"
+      - "JWT_SECRET=1qeH74P6EhfcsEu/Fbb02/hTQKMIoa1ISzkzjWgx3CXYg7APM7BE/DYXzM/CHBru"
+      - "DEFAULT_ADMIN_USER=cyb3rgh05t"
+      - "DEFAULT_ADMIN_PASS=cyb3r9ffe4e761F!"
+      - "API_KEY="
+      - "DISCORD_WEBHOOK="
+      - "TELEGRAM_BOT_TOKEN="
+      - "TELEGRAM_CHAT_ID="
+      - "TELEGRAM_TOPIC_ID="
+      - "SERVER_NAME="
+      - "NFS_THREADS=512"
+    restart: "unless-stopped"
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    devices:
+      - "/dev/fuse:/dev/fuse"
+    network_mode: "host"
+    volumes:
+      - "/opt/appdata/nfs-mount/data:/data"
+      - "/mnt:/mnt:rshared"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/opt/appdata/nfs-mount/ssh:/config/ssh"
+      - "/etc/hostname:/etc/hostname_host:ro"
