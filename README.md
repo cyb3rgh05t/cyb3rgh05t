@@ -16,7 +16,6 @@
   <img src="https://github-readme-streak-stats.herokuapp.com?user=cyb3rgh05t&theme=transparent&hide_border=true&locale=de&timezone=Europe%2FBerlin&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" width="48%" />
 </p>
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=cyb3rgh05t&theme=transparent&hide_border=true&locale=de&timezone=Europe%2FBerlin&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
 </br>
 <p align="center">
 <details align="center">
