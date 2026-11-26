@@ -1,25 +1,17 @@
-## Hello there, I am
 
-```                                                                                            
-                                                     _    ____            _      ___  _____ _   
-                                                    | |  |___ \          | |    / _ \| ____| |  
-                                           ___ _   _| |__  __) |_ __ __ _| |__ | | | | |__ | |_ 
-                                          / __| | | | '_ \|__ <| '__/ _` | '_ \| | | |___ \| __|
-                                         | (__| |_| | |_) |__) | | | (_| | | | | |_| |___) | |_ 
-                                          \___|\__, |_.__/____/|_|  \__, |_| |_|\___/|____/ \__|
-                                                __/ |                __/ |                      
-                                               |___/                |___/                                 
-```                                                                                                  
+<p align="center">
+  <img width="564" height="122" alt="image" src="https://github.com/user-attachments/assets/5992a00f-cbb6-4ce6-b52d-0b441added2f" />
+</p>
 
-<p align="right">
+<p align="center">
   <a href="https://github.com/cyb3rgh05t">
     <img alt="Views" src="https://komarev.com/ghpvc/?username=cyb3rgh05t&label=PROFILE+VIEWS&color=blueviolet">
   </a>
 </p>
 
 <p align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=cyb3rgh05t&hide_title=true&show_icons=true&hide_border=true&include_all_commits=true&theme=transparent&text_color=ffffff" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=cyb3rgh05t&theme=transparent&hide_border=true&locale=de&timezone=Europe%2FBerlin&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" width="48%" />
+  <img src="https://github-stats-extended.vercel.app/api?username=cyb3rgh05t&hide_title=true&icon_color=c471f5&show_icons=true&hide_border=true&bg_color=00000000&include_all_commits=true&theme=jolly&text_color=ffffff" alt="GitHub Stats" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=cyb3rgh05t&theme=jolly&hide_border=true&locale=de&timezone=Europe%2FBerlin&date_format=j%20M%5B%20Y%5D&background=EB545400" alt="GitHub Streak" width="48%" />
 </p>
 
 <p align="center">
