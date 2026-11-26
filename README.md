@@ -12,7 +12,7 @@
 
 
 <p align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=cyb3rgh05t&hide_title=true&show_icons=true&include_all_commits=true&theme=transparent&text_color=ffffff" alt="GitHub Stats" width="48%" />
+  <img src="https://github-stats-extended.vercel.app/api?username=cyb3rgh05t&hide_title=true&show_icons=true&hide_border=true&include_all_commits=true&theme=transparent&text_color=ffffff" alt="GitHub Stats" width="48%" />
   <img src="https://github-readme-streak-stats.herokuapp.com?user=cyb3rgh05t&theme=transparent&hide_border=true&locale=de&timezone=Europe%2FBerlin&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" width="48%" />
 </p>
 https://github-stats-extended.vercel.app/api?username=cyb3rgh05t&hide_title=true&show_icons=true&include_all_commits=true&theme=transparent
