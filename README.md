@@ -15,6 +15,11 @@
     <img alt="Top Langs" height="165px" src="https://github-readme-stats-ichbinleoons-projects.vercel.app/api/top-langs?username=cyb3rgh05t&layout=compact&hide_border=true&theme=dark">
 </p>
 
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=cyb3rgh05tt&show_icons=true&theme=transparent&hide_border=true&title_color=2196F3&icon_color=2196F3&text_color=ffffff" alt="GitHub Stats" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=cyb3rgh05t&theme=transparent&hide_border=true&title_color=2196F3&icon_color=2196F3&text_color=ffffff" alt="GitHub Streak" width="48%" />
+</p>
+
 </br>
 <p align="center">
 <details align="center">
