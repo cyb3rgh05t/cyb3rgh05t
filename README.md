@@ -1,13 +1,14 @@
 ## Hello there, I am
 
 ```                                                                                            
-                                             _     _____             _      ___       _   
-                                            | |   |___ /            | |    / _ \     | |
-                                  ___ _   _ | |__   |_ \ _ __  __ _ | |__ | | | |___ | |_ 
-                                 / __| | | || '_ \ ___) | '__|/ _` || '_ \| | | / __|| __|
-                                | (__| |_| || |_) / __/ | |  | (_| || | | | |_| \__ \| |_
-                                 \___|\__, ||_.__/_____||_|   \__, ||_| |_|\___/|___/ \__|
-                                      |___/                   |___/                  
+                                                     _    ____            _      ___  _____ _   
+                                                    | |  |___ \          | |    / _ \| ____| |  
+                                           ___ _   _| |__  __) |_ __ __ _| |__ | | | | |__ | |_ 
+                                          / __| | | | '_ \|__ <| '__/ _` | '_ \| | | |___ \| __|
+                                         | (__| |_| | |_) |__) | | | (_| | | | | |_| |___) | |_ 
+                                          \___|\__, |_.__/____/|_|  \__, |_| |_|\___/|____/ \__|
+                                                __/ |                __/ |                      
+                                               |___/                |___/                                 
 ```                                                                                                  
 
 <p align="right">
@@ -19,6 +20,12 @@
 <p align="center">
   <img src="https://github-stats-extended.vercel.app/api?username=cyb3rgh05t&hide_title=true&show_icons=true&hide_border=true&include_all_commits=true&theme=transparent&text_color=ffffff" alt="GitHub Stats" width="48%" />
   <img src="https://github-readme-streak-stats.herokuapp.com?user=cyb3rgh05t&theme=transparent&hide_border=true&locale=de&timezone=Europe%2FBerlin&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" width="48%" />
+</p>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,bash,linux,docker,cloudflare,githubactions,git,ubuntu,vscode&perline=14" alt="My Skills"/>
+  </a>
 </p>
 
 ---
